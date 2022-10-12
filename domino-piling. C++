@@ -1,0 +1,12 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int m,n,value=0;
+    cin>>m>>n;
+    value=m*n/2;
+    cout<<value<<endl;
+    return 0;
+}
