@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int>a(102);
+        int n=nums.size();
+        for(int i=0;i<n;i++)
+            a[nums[i]]++;
+            vector<int>k;
+            for(int i=0;i<n;i++){
+                int tot=0;
+                for(int j=0;j<nums[i];j++)
+                tot+=a[j];
+                k.push_back(tot);
+            }
+            return k;
+    }
+};
