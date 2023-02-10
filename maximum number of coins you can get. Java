@@ -1,0 +1,14 @@
+class Solution {
+    public int maxCoins(int[] piles) {
+        int i=0,j=piles.length-2, sum=0;
+        int result=0;
+        Arrays.sort(piles);
+        while(i<j){
+            result+=piles[j];
+            j-=2;
+            i++;
+        }
+                return result;
+            }
+
+        };
