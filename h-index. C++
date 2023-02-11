@@ -1,0 +1,14 @@
+class Solution {
+    int count[1001];
+public:
+    int hIndex(vector<int>& citations) {
+        for(auto c:citations)++count[c];
+        int sum=0;
+        for(int i=1000;i>=0;i--){
+            sum+=count[i];
+            if(sum>=i)return i;
+        }
+        return 0;
+        
+    }
+};
