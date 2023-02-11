@@ -1,0 +1,79 @@
+import java.util.ArrayDeque;
+class MyCircularDeque {
+private ArrayDeque<Integer>arrDeque;
+private int arrSize=0;
+    public MyCircularDeque(int k) {
+      arrDeque=new ArrayDeque<Integer>(k);
+        arrSize=k;
+        
+    }
+    
+    public boolean insertFront(int value) {
+        if(arrDeque.size()<arrSize){
+            arrDeque.addFirst(value);
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean insertLast(int value) {
+        if(arrDeque.size()<arrSize){
+            arrDeque.addLast(value);
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean deleteFront() {
+        if(arrDeque.isEmpty()){
+            return false;
+        }
+        arrDeque.removeFirst();
+        return true;
+    }
+    
+    public boolean deleteLast() {
+        if(arrDeque.isEmpty()){
+            return false;
+        }
+        arrDeque.removeLast();
+        return true;
+    }
+    
+    public int getFront() {
+        Integer ret=arrDeque.peekFirst();
+        if(ret==null){
+            return -1;
+        }
+        return ret;
+    }
+    
+    public int getRear() {
+        Integer ret=arrDeque.peekLast();
+        if(ret==null){
+            return-1;
+        }
+        return ret;
+    }
+    
+    public boolean isEmpty() {
+         return arrDeque.isEmpty();
+    }
+    
+    public boolean isFull() {
+        return arrDeque.size()==arrSize;
+    }
+}
+
+/**
+ * Your MyCircularDeque object will be instantiated and called as such:
+ * MyCircularDeque obj = new MyCircularDeque(k);
+ * boolean param_1 = obj.insertFront(value);
+ * boolean param_2 = obj.insertLast(value);
+ * boolean param_3 = obj.deleteFront();
+ * boolean param_4 = obj.deleteLast();
+ * int param_5 = obj.getFront();
+ * int param_6 = obj.getRear();
+ * boolean param_7 = obj.isEmpty();
+ * boolean param_8 = obj.isFull();
+ */
