@@ -1,0 +1,19 @@
+class Solution {
+    public int leastInterval(char[] tasks, int n) {
+      int len=tasks.length;
+      int[]  count=new int[26];
+      int maximum=0;
+      for(char t:tasks){
+          count[t-'A']++;
+          maximum=Math.max(maximum,count[t-'A']);
+      }
+      Arrays.sort(count);
+
+      int totalTime=(maximum-1)*n;
+      for(int i=24;i>=0;i--){
+          totalTime-=Math.min(maximum-1,count[i]);
+      }
+      totalTime=Math.max(0,totalTime);
+      return len+totalTime;
+    }
+}
