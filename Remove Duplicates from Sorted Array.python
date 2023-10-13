@@ -1,0 +1,10 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        unique_counter=1
+        move=1
+        while move<len(nums):
+            if nums[move]!=nums[move-1]:
+                nums[unique_counter]=nums[move]
+                unique_counter+=1
+            move+=1
+        return unique_counter
