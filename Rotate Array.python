@@ -1,0 +1,24 @@
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        x=k%len(nums)
+        l=0
+        r=len(nums)-1
+        while l<r:
+            nums[l],nums[r]=nums[r],nums[l]
+            l+=1
+            r-=1
+        l=0
+        r=x-1
+        while l<r:
+            nums[l],nums[r]=nums[r],nums[l]
+            l+=1
+            r-=1
+        l=x
+        r=len(nums)-1
+        while l<r:
+            nums[l],nums[r]=nums[r],nums[l]
+            l+=1
+            r-=1
