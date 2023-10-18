@@ -1,0 +1,14 @@
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        subArray = {0:1}
+        count=0
+        res=0
+        for i in nums:
+            res+=i
+            if res-k in subArray:
+                count+=subArray[res-k]
+            if res in subArray:
+                subArray[res]+=1
+            else:
+                subArray[res]=1
+        return count
