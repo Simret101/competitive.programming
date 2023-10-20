@@ -1,0 +1,24 @@
+class NumMatrix:
+
+    def __init__(self, matrix: List[List[int]]):
+        row,col=len(matrix),len(matrix[0])
+        self.sumQuery=[[0]*(col+1) for r in range (row+1)]
+        for r in range(row):
+            pre=0
+            for c in range(col):
+                pre+=matrix[r][c]
+                top=self.sumQuery[r][c+1]
+                self.sumQuery[r+1][c+1]=pre+top
+
+    def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
+        bot_right=self.sumQuery[row2+1][col2+1]
+        top=self.sumQuery[row1][col2+1]
+        left=self.sumQuery[row2+1][col1]
+        top_left=self.sumQuery[row1][col1]
+        return bot_right-top-left+top_left
+        
+
+
+# Your NumMatrix object will be instantiated and called as such:
+# obj = NumMatrix(matrix)
+# param_1 = obj.sumRegion(row1,col1,row2,col2)
