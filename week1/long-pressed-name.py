@@ -1,0 +1,22 @@
+class Solution(object):
+    def isLongPressedName(self, name, typed):
+        """
+        :type name: str
+        :type typed: str
+        :rtype: bool
+        """
+        i,j=0,0
+        while  j<len(typed):
+            if i<len(name) and typed[j]==name[i]:
+                i+=1
+            elif j==0 or typed[j]!=typed[j-1] : 
+                return False
+            j+=1
+    
+    
+        return i==len(name)
+        
+ 
+        
+
+        
